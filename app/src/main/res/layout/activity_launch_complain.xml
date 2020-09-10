@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/darkviolet"
+    tools:context=".LaunchComplain">
+
+    <Button
+        android:id="@+id/back_btn"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:drawableLeft="@drawable/ic_back_icon"
+        android:padding="8dp"
+        android:drawablePadding="8dp"
+        android:textSize="28dp"
+        android:textColor="@color/White"
+        android:fontFamily="@font/sitkasmall"
+        android:text="Launch Complain"
+        android:background="@drawable/button"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="25dp"/>
+
+    <Button
+        android:id="@+id/missing_complain"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:textColor="@color/White"
+        android:textSize="24dp"
+        android:text="Missing Complain"
+        android:background="@drawable/button"
+        android:layout_marginTop="50dp"/>
+
+    <Button
+        android:id="@+id/complain"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:textColor="@color/White"
+        android:textSize="24dp"
+        android:text="Complain"
+        android:background="@drawable/button"
+        android:layout_marginTop="50dp"/>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

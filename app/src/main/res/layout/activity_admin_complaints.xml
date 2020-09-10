@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AdminComplaints">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        app:cardCornerRadius="20dp"
+        android:layout_marginTop="10dp"
+        app:cardBackgroundColor="@color/bluegray"
+        android:layout_marginRight="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/choose_down"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/button"
+        android:padding="8dp"
+        android:visibility="visible"
+        android:textAlignment="center"
+        android:drawableRight="@drawable/ic_dropdown"
+        android:drawablePadding="8dp"
+        android:clickable="true"
+        android:textColor="@color/White"
+        android:textSize="20dp"
+        android:text="Choose"/>
+
+        <TextView
+            android:id="@+id/choose_up"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/button"
+            android:padding="8dp"
+            android:visibility="gone"
+            android:textAlignment="center"
+            android:drawableRight="@drawable/ic_pullup"
+            android:drawablePadding="8dp"
+            android:clickable="true"
+            android:textColor="@color/White"
+            android:textSize="20dp"
+            android:text="Choose"/>
+
+    <LinearLayout
+        android:id="@+id/extra"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/complaints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Complaints "
+        android:textSize="20dp"
+        android:clickable="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/White"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/White"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:id="@+id/missing_complaints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Missing Complaints "
+            android:clickable="true"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/White"/>
+
+    </LinearLayout>
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <EditText
+        android:id="@+id/pin"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:padding="8dp"
+        android:background="@drawable/button"
+        android:layout_marginTop="30dp"
+        android:hint="Enter Pincode"
+        android:textAlignment="center"
+        android:textColorHint="@color/bluegray"/>
+
+    <Button
+        android:id="@+id/search"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="search"
+        android:background="@drawable/button"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/White"
+        android:layout_gravity="center"/>
+</androidx.appcompat.widget.LinearLayoutCompat>

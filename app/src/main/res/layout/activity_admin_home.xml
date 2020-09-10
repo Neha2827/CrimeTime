@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/darkviolet"
+    android:gravity="center"
+    tools:context=".AdminHome">
+
+    <Button
+        android:id="@+id/admin_complain"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:background="@drawable/button"
+        android:text="Complain"
+        android:layout_margin="20dp"
+        android:fontFamily="@font/sitkasmall"
+        android:textColor="@color/White"
+        android:textSize="26dp"/>
+
+    <Button
+        android:id="@+id/admin_req"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:background="@drawable/button"
+        android:text="Admin Request"
+        android:layout_margin="20dp"
+        android:fontFamily="@font/sitkasmall"
+        android:textColor="@color/White"
+        android:textSize="26dp"/>
+
+    <Button
+        android:id="@+id/processing"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:background="@drawable/button"
+        android:text="Processing"
+        android:fontFamily="@font/sitkasmall"
+        android:layout_margin="20dp"
+        android:textColor="@color/White"
+        android:textSize="26dp"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/darkviolet"
+    tools:context=".CrimeRateReport">
+
+    <Button
+        android:id="@+id/back_btn"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:drawableLeft="@drawable/ic_back_icon"
+        android:padding="8dp"
+        android:drawablePadding="8dp"
+        android:textSize="26dp"
+        android:textColor="@color/White"
+        android:fontFamily="@font/sitkasmall"
+        android:text="Crime Rate Report"
+        android:background="@drawable/button"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="25dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/pincode"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:padding="8dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/White"
+            android:hint="Enter your Pincode"
+            android:background="@drawable/button"
+            android:textSize="20dp"/>
+
+        <Button
+            android:id="@+id/search"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:text="search"
+            android:padding="8dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/button"
+            android:textColor="@color/White"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/details"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:layout_below="@+id/pincode"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:background="@color/White"/>
+
+    </RelativeLayout>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

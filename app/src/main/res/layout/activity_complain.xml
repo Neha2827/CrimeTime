@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/darkviolet"
+    tools:context=".Complain">
+
+    <Button
+        android:id="@+id/back_btn"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:drawableLeft="@drawable/ic_back_icon"
+        android:padding="8dp"
+        android:drawablePadding="8dp"
+        android:textSize="26dp"
+        android:textColor="@color/White"
+        android:fontFamily="@font/sitkasmall"
+        android:text="Complain"
+        android:background="@drawable/button"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="25dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/missing_name"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:hint="Name"
+                android:padding="10dp"
+                android:textColorHint="@color/lightgray"
+                android:inputType="text"
+                android:background="@drawable/button"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"/>
+
+            <EditText
+                android:id="@+id/age"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="30dp"
+                android:hint="Age"
+                android:padding="10dp"
+                android:inputType="number"
+                android:textColorHint="@color/lightgray"
+                android:layout_below="@id/missing_name"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button"
+                />
+
+            <EditText
+                android:id="@+id/phone"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:hint="Contact Number"
+                android:inputType="number"
+                android:padding="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp"
+                android:textColorHint="@color/lightgray"
+                android:layout_below="@id/missing_name"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/button"
+                />
+
+                <EditText
+                    android:id="@+id/complainer_address"
+                    android:layout_width="350dp"
+                    android:layout_height="100dp"
+                    android:hint="Enter Your full Address"
+                    android:textAlignment="textStart"
+                    android:padding="10dp"
+                    android:layout_below="@id/phone"
+                    android:textColorHint="@color/lightgray"
+                    android:inputType="textLongMessage"
+                    android:lines="3"
+                    android:background="@drawable/button"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"/>
+
+                <EditText
+                    android:id="@+id/pincode"
+                    android:layout_width="180dp"
+                    android:layout_height="50dp"
+                    android:hint="Enter Your Pincode"
+                    android:padding="10dp"
+                    android:layout_below="@id/complainer_address"
+                    android:textColorHint="@color/lightgray"
+                    android:inputType="text"
+                    android:background="@drawable/button"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"/>
+
+                <EditText
+                    android:id="@+id/date"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:hint="Date"
+                    android:padding="10dp"
+                    android:layout_below="@id/complainer_address"
+                    android:layout_alignParentRight="true"
+                    android:textColorHint="@color/lightgray"
+                    android:inputType="text"
+                    android:background="@drawable/button"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="20dp"/>
+
+                <EditText
+                    android:id="@+id/complain_detail"
+                    android:layout_width="350dp"
+                    android:layout_height="100dp"
+                    android:hint="Enter Your Complain Details"
+                    android:textAlignment="textStart"
+                    android:padding="10dp"
+                    android:layout_below="@id/date"
+                    android:textColorHint="@color/lightgray"
+                    android:inputType="textLongMessage"
+                    android:lines="3"
+                    android:background="@drawable/button"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"/>
+
+                <Button
+                    android:id="@+id/launch_btn"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:text="Launch"
+                    android:padding="10dp"
+                    android:textColor="@color/lightgray"
+                    android:layout_marginBottom="20dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/complain_detail"
+                    android:background="@drawable/button"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="40dp"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="340dp"
+        android:layout_margin="20dp"
+        app:cardCornerRadius="50dp"
+        app:cardBackgroundColor="@color/White">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22dp"
+                android:layout_gravity="center"
+                android:text="Complain Launch Successful !!!"
+                android:textColor="@color/darkviolet"/>
+
+            <Button
+                android:id="@+id/ok"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button"
+                android:layout_marginTop="40dp"
+                android:text="OK"
+                android:padding="4dp"
+                android:textSize="20dp"
+                android:textColor="@color/White"/>
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
