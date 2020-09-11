@@ -1,6 +1,7 @@
 package com.project.crimetime.Classes;
 
 public class ComplainClass {
+    String name;
     String complainNo;
     String complain;
     String status;
