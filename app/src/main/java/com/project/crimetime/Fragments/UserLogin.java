@@ -52,7 +52,6 @@ import com.project.crimetime.Verhoeff;
 import java.util.concurrent.Executor;
 
 
-
 public class UserLogin
         extends Fragment {
 
