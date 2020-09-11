@@ -83,26 +83,26 @@ public class UserRegister extends Fragment {
                 }
 
 
-                if (TextUtils.isEmpty(password)) {
+                else if (TextUtils.isEmpty(password)) {
                     mPassword.setError("Password is Required.");
                     return;
                 }
 
-                if (TextUtils.isEmpty(confirmpassword)) {
+                else if (TextUtils.isEmpty(confirmpassword)) {
                     mconfirmPassword.setError("reconfirmation required.");
                     return;
                 }
-                if (TextUtils.isEmpty(adhar)) {
+               else if (TextUtils.isEmpty(adhar)) {
                     mAdhar.setError("Aadhar_number is necessary.");
                     return;
                 }
 
 
-                if (password.length() < 6) {
+                else if (password.length() < 6) {
                     mPassword.setError("Password Must be >=6 Character");
                     return;
                 }
-                if (!password.equals(confirmpassword)) {
+               else if (!password.equals(confirmpassword)) {
                     Toast.makeText(getActivity(), "your password do not match with your confirm password", Toast.LENGTH_LONG).show();
                 }else {
 
@@ -126,8 +126,7 @@ public class UserRegister extends Fragment {
                     });
                 }
 
-                Intent intent = new Intent(getContext(), LogIn.class);
-                startActivity(intent);
+
 
             }
         });
