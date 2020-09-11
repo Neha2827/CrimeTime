@@ -18,13 +18,20 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.project.crimetime.LogIn;
 import com.project.crimetime.R;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class AdminRegister extends Fragment {
     EditText mfullName,mEmail,mPoliceid,mpincode;
     Button register;
     FirebaseAuth fAuth;
+    String userId;
+    FirebaseFirestore fStore;
 
 
     @Override
@@ -47,13 +54,16 @@ public class AdminRegister extends Fragment {
         mPoliceid = v.findViewById(R.id.police_id);
         mpincode = v.findViewById(R.id.police_station);
         fAuth = FirebaseAuth.getInstance();
+        fStore=FirebaseFirestore.getInstance();
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = mEmail.getText().toString().trim();
-                String policeid = mPoliceid.getText().toString().trim();
-                String pincode = mpincode.getText().toString().trim();
+                final String email = mEmail.getText().toString().trim();
+                final String policeid = mPoliceid.getText().toString().trim();
+                final String pincode = mpincode.getText().toString().trim();
+                final String fullname=mfullName.getText().toString().trim();
+
 
                 if (TextUtils.isEmpty(email)) {
                     mEmail.setError("Email is Required.");
@@ -76,9 +86,22 @@ public class AdminRegister extends Fragment {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
+
                                 Toast.makeText(getActivity(), "requested for admin.", Toast.LENGTH_SHORT).show();
+
                                 Intent intent = new Intent(getContext(), LogIn.class);
                                 startActivity(intent);
+                                userId = fAuth.getCurrentUser().getUid();
+                                DocumentReference documentReference=fStore.collection("users").document(userId);
+
+                                Map<String,Object> user=new HashMap<>();
+                                user.put("Name",fullname);
+                                user.put("Email",email);
+                                user.put("Policeid",policeid);
+                                user.put("Pincode",pincode);
+
+                                documentReference.set(user);
+
 
 
                             } else {

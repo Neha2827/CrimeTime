@@ -65,8 +65,8 @@ public class UserRegister extends Fragment {
 
 
         fAuth = FirebaseAuth.getInstance();
-        fStore=FirebaseFirestore.getInstance();
 
+        fStore=FirebaseFirestore.getInstance();
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
