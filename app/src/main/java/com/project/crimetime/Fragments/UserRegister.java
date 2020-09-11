@@ -20,15 +20,22 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.project.crimetime.LogIn;
 import com.project.crimetime.R;
 import com.project.crimetime.Verhoeff;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class UserRegister extends Fragment {
     EditText mFullName, mAdhar, mEmail, mPassword, mconfirmPassword;
     Button register;
     FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
+    String userId;
 
 
 
@@ -58,14 +65,16 @@ public class UserRegister extends Fragment {
 
 
         fAuth = FirebaseAuth.getInstance();
+        fStore=FirebaseFirestore.getInstance();
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = mEmail.getText().toString().trim();
-                String password = mPassword.getText().toString().trim();
+                final String email = mEmail.getText().toString().trim();
+                final String password = mPassword.getText().toString().trim();
                 String confirmpassword = mconfirmPassword.getText().toString().trim();
-                String adhar = mAdhar.getText().toString().trim();
+                final String adhar = mAdhar.getText().toString().trim();
+                final String name=mFullName.getText().toString().trim();
 
                 boolean result = Verhoeff.validateVerhoeff(adhar);
                 String msg = String.valueOf(result);
@@ -115,6 +124,18 @@ public class UserRegister extends Fragment {
                                 Toast.makeText(getActivity(), "user created.", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getContext(), LogIn.class);
                                 startActivity(intent);
+
+                                //STORE DATA IN FIRESTORE
+                                userId=fAuth.getCurrentUser().getUid();
+                                DocumentReference documentReference=fStore.collection("users").document(userId);
+
+                                Map<String,Object> user=new HashMap<>();
+                                user.put("Name",name);
+                                user.put("Email",email);
+                                user.put("password",password);
+                                user.put("Adhar No",adhar);
+
+                                documentReference.set(user);
 
 
                             } else {

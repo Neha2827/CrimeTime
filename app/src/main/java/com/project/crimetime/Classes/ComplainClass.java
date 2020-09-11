@@ -5,7 +5,6 @@ public class ComplainClass {
     String complainNo;
     String complain;
     String status;
-    String name;
 
     public ComplainClass(String complainNo, String complain, String status) {
         this.complainNo = complainNo;
