@@ -69,65 +69,66 @@ public class UserRegister extends Fragment {
 
                 boolean result = Verhoeff.validateVerhoeff(adhar);
                 String msg = String.valueOf(result);
-
-                if (msg == "true") {
+                if (msg == "true")
                     Toast.makeText(getActivity(), "valid aadhar_number", Toast.LENGTH_LONG).show();
-                } else {
+                else
                     Toast.makeText(getActivity(), "invalid_aadhar_number", Toast.LENGTH_LONG).show();
-                }
 
 
-                if (TextUtils.isEmpty(email)) {
-                    mEmail.setError("Email is Required.");
-                    return;
-                }
 
 
-                if (TextUtils.isEmpty(password)) {
-                    mPassword.setError("Password is Required.");
-                    return;
-                }
-
-                if (TextUtils.isEmpty(confirmpassword)) {
-                    mconfirmPassword.setError("reconfirmation required.");
-                    return;
-                }
                 if (TextUtils.isEmpty(adhar)) {
-                    mAdhar.setError("Aadhar_number is necessary.");
-                    return;
+                        mAdhar.setError("Aadhar_number is necessary.");
+                        return;
+
                 }
 
 
-                if (password.length() < 6) {
-                    mPassword.setError("Password Must be >=6 Character");
-                    return;
-                }
-                if (!password.equals(confirmpassword)) {
-                    Toast.makeText(getActivity(), "your password do not match with your confirm password", Toast.LENGTH_LONG).show();
-                }else {
+                    else if  (TextUtils.isEmpty(password)) {
+                        mPassword.setError("Password is Required.");
+                        return;
+                    }
+
+                    else if (TextUtils.isEmpty(confirmpassword)) {
+                        mconfirmPassword.setError("reconfirmation required.");
+                        return;
+                    }
+                    else if (TextUtils.isEmpty(email)) {
+                        mEmail.setError("Email is required.");
+                        return;
+                    }
 
 
-                    //register user in firebase
-                    fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                Toast.makeText(getActivity(), "user created.", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getContext(), LogIn.class);
-                                startActivity(intent);
+                    else if (password.length() < 6) {
+                        mPassword.setError("Password Must be >=6 Character");
+                        return;
+                    }
+                    else  if (!password.equals(confirmpassword)) {
+                        Toast.makeText(getActivity(), "your password do not match with your confirm password", Toast.LENGTH_LONG).show();
+                    } else {
 
 
-                            } else {
-                                Toast.makeText(getActivity(), "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        //register user in firebase
+                        fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getActivity(), "user created.", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getContext(), LogIn.class);
+                                    startActivity(intent);
+
+
+                                } else {
+                                    Toast.makeText(getActivity(), "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+
+                                }
 
                             }
+                        });
 
-                        }
-                    });
-                }
 
-                Intent intent = new Intent(getContext(), LogIn.class);
-                startActivity(intent);
+                    }
+
 
             }
         });
