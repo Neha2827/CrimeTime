@@ -92,7 +92,7 @@ public class AdminRegister extends Fragment {
                                 Intent intent = new Intent(getContext(), LogIn.class);
                                 startActivity(intent);
                                 userId = fAuth.getCurrentUser().getUid();
-                                DocumentReference documentReference=fStore.collection("users").document(userId);
+                                DocumentReference documentReference=fStore.collection("admin").document(userId);
 
                                 Map<String,Object> user=new HashMap<>();
                                 user.put("Name",fullname);
