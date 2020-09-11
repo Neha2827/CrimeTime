@@ -50,7 +50,7 @@
         android:drawableLeft="@drawable/ic_star"
         android:drawablePadding="8dp"
         android:padding="10dp"
-        android:hint="Enter your Police id"
+        android:hint="Enter a suitable password"
         android:layout_marginTop="20dp"
         android:textColorHint="@color/White"
         android:textAlignment="center"

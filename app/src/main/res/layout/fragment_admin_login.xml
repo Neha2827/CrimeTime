@@ -14,16 +14,24 @@
         android:paddingBottom="20dp"
         android:layout_height="match_parent">
 
+
+
         <EditText
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:textAlignment="center"
             android:id="@+id/log_admin_id"
-            android:hint="Admin ID"
+            android:hint="Enter email"
+            android:drawableLeft="@android:drawable/ic_dialog_email"
+            android:drawablePadding="8dp"
+            android:padding="10dp"
             android:textColorHint="@color/bluegray"
             android:layout_margin="10dp"
             android:background="@drawable/buttom_signin"
             android:textSize="24sp"/>
+
+
+
 
         <EditText
             android:layout_width="250dp"
@@ -43,7 +51,7 @@
             android:padding="4dp"
             >
 
-            <androidx.appcompat.widget.AppCompatCheckBox
+            <CheckBox
                 android:id="@+id/showpass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

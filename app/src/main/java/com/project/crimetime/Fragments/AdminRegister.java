@@ -58,40 +58,39 @@ public class AdminRegister extends Fragment {
                 if (TextUtils.isEmpty(email)) {
                     mEmail.setError("Email is Required.");
                     return;
-                }
-
-
-                if (TextUtils.isEmpty(policeid)) {
+                } else if (TextUtils.isEmpty(policeid)) {
                     mPoliceid.setError("Police_id is Required.");
                     return;
                 }
-
-
-                if (TextUtils.isEmpty(pincode)) {
+                     else if  (TextUtils.isEmpty(policeid)) {
+                        mPoliceid.setError("Password is Required.");
+                        return;
+                    }
+                else if (TextUtils.isEmpty(pincode)) {
                     mpincode.setError("pincode is required.");
                     return;
-                }
+                } else {
 
-                //register user in firebase
-                fAuth.createUserWithEmailAndPassword(email, policeid).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(getActivity(), "requested for admin.", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getContext(), LogIn.class);
-                            startActivity(intent);
+                    //register user in firebase
+                    fAuth.createUserWithEmailAndPassword(email, policeid).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(getActivity(), "requested for admin.", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getContext(), LogIn.class);
+                                startActivity(intent);
 
 
-                        } else {
-                            Toast.makeText(getActivity(), "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(getActivity(), "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+
+                            }
 
                         }
+                    });
+                }
 
-                    }
-                });
             }
-
-
         });
         return v;
     }
