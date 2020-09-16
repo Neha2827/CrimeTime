@@ -1,8 +1,10 @@
 package com.project.crimetime;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -10,15 +12,39 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.project.crimetime.Classes.ComplainClass;
 
 public class Complain extends AppCompatActivity {
-
     Button launch;
+    EditText mEtName,mEtAddress,mEtPin,mEtDate,mEtContact,mEtComplaint;
+    FirebaseFirestore firebaseFirestore;
+    FirebaseAuth firebaseAuth;
+    String id;
+    CollectionReference collectionReference=firebaseFirestore.collection("complaints").document(id).collection("complaint details");
+
+   // Button launch;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complain);
         launch = findViewById(R.id.launch_btn);
+        firebaseAuth=FirebaseAuth.getInstance();
+        firebaseFirestore=FirebaseFirestore.getInstance();
+        mEtAddress=findViewById(R.id.complainer_address);
+        mEtComplaint=findViewById(R.id.complain_detail);
+        mEtContact=findViewById(R.id.phone);
+        mEtDate=findViewById(R.id.date);
+        mEtName=findViewById(R.id.missing_name);
+        mEtPin=findViewById(R.id.pincode);
 
         launch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,5 +78,34 @@ public class Complain extends AppCompatActivity {
         }catch (Exception e){
             Log.d("exception", e.getMessage());
         }
+        //STORING IT IN FIRESTORE
+        id=firebaseAuth.getCurrentUser().getUid();
+        final String name=mEtName.getText().toString();
+        String address=mEtAddress.getText().toString();
+        String pin=mEtPin.getText().toString();
+        String complain=mEtComplaint.getText().toString();
+        String date=mEtDate.getText().toString();
+        String contact=mEtContact.getText().toString();
+        String status="complaint sent";
+
+        ComplainClass complainClass=new ComplainClass(name,address,pin,complain,date,contact,status);
+
+        collectionReference.add(complainClass).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+                startActivity(new Intent(getApplicationContext(),HomeScreen.class));
+                Toast.makeText(getApplicationContext(),"Check MY COMPLAIN section to view your complaint status",
+                        Toast.LENGTH_LONG).show();
+                //finish();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getApplicationContext(),"Error While Saving your Data",Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getApplicationContext(),HomeScreen.class));
+               // finish();
+            }
+        });
+
     }
 }

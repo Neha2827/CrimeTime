@@ -16,7 +16,7 @@ import com.project.crimetime.Classes.ComplainClass;
 import com.project.crimetime.R;
 
 import java.util.ArrayList;
-
+/*
 public class ComplainRecyclerAdapter extends RecyclerView.Adapter<ComplainRecyclerAdapter.ViewHolder> {
 
     Context context;
@@ -26,15 +26,15 @@ public class ComplainRecyclerAdapter extends RecyclerView.Adapter<ComplainRecycl
         this.context = context;
     }
 
-    @NonNull
+    /*@NonNull
     @Override
     public ComplainRecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.report_recycler_layout, parent, false);
         ViewHolder vh = new ViewHolder(view);
         return vh;
-    }
+    }*/
 
-    @Override
+    /* @Override
     public void onBindViewHolder(@NonNull final ComplainRecyclerAdapter.ViewHolder holder, int position) {
         ComplainClass complain = list.get(position);
 
@@ -45,9 +45,9 @@ public class ComplainRecyclerAdapter extends RecyclerView.Adapter<ComplainRecycl
             holder.status.setText("Status - " + complain.getStatus());
         }catch (Exception e){
             e.printStackTrace();
-        }
+        } */
 
-
+/*
         holder.heading.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,3 +92,4 @@ public class ComplainRecyclerAdapter extends RecyclerView.Adapter<ComplainRecycl
         }
     }
 }
+*/

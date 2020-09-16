@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.project.crimetime.Adapters.ComplainRecyclerAdapter;
+//import com.project.crimetime.Adapters.ComplainRecyclerAdapter;
 import com.project.crimetime.Classes.ComplainClass;
 
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ public class MyComplaints extends AppCompatActivity {
         recycler = findViewById(R.id.complain_recycler);
         recycler.setHasFixedSize(true);
 
-        list = getData();
+  /*      list = getData();
         ComplainRecyclerAdapter adapter = new ComplainRecyclerAdapter(list, this);
         recycler.setAdapter(adapter);
     }
@@ -35,5 +35,5 @@ public class MyComplaints extends AppCompatActivity {
         list.add(new ComplainClass("12348", "hit n run", "Unverified" ));
 
         return list;
-    }
-}
+    }*/
+}}

@@ -36,6 +36,7 @@ public class LaunchComplain extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LaunchComplain.this, Complain.class);
                 startActivity(intent);
+
             }
         });
     }
