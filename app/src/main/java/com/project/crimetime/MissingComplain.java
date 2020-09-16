@@ -3,6 +3,7 @@ package com.project.crimetime;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -12,7 +13,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MissingComplain extends AppCompatActivity {
-
+    Button photo;
     Button launch;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,15 @@ public class MissingComplain extends AppCompatActivity {
         setContentView(R.layout.activity_missing_complain);
 
         launch = findViewById(R.id.launch_btn);
+        photo = findViewById(R.id.photo);
+
+        photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MissingComplain.this, Camera.class);
+                startActivity(intent);
+            }
+        });
 
         launch.setOnClickListener(new View.OnClickListener() {
             @Override
