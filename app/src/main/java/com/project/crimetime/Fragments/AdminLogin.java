@@ -110,8 +110,8 @@ public class AdminLogin extends Fragment {
                 });
 
 
-                Intent intent = new Intent(getContext(), AdminHome.class);
-                startActivity(intent);
+               // Intent intent = new Intent(getContext(), AdminHome.class);
+                //startActivity(intent);
             }
         });
 

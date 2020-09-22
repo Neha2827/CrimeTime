@@ -162,8 +162,8 @@ public class UserLogin
                 });
 
 
-                Intent intent = new Intent(getContext(), HomeScreen.class);
-                startActivity(intent);
+                //Intent intent = new Intent(getContext(), HomeScreen.class);
+                //startActivity(intent);
             }
         });
         forgotpassword.setOnClickListener(new View.OnClickListener() {
