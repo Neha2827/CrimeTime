@@ -28,8 +28,6 @@ public class Complain extends AppCompatActivity {
     EditText mEtName,mEtAddress,mEtPin,mEtDate,mEtContact,mEtComplaint;
     FirebaseFirestore firebaseFirestore;
     FirebaseAuth firebaseAuth;
-    String id;
-    CollectionReference collectionReference=firebaseFirestore.collection("complaints").document(id).collection("complaint details");
 
    // Button launch;
     @Override
@@ -55,6 +53,34 @@ public class Complain extends AppCompatActivity {
     }
 
     public void launchComplain(){
+        //STORING DATA
+        String id=firebaseAuth.getCurrentUser().getUid();
+        CollectionReference collectionReference=firebaseFirestore.collection("complaints").document(id).collection("complaint details");
+        final String name=mEtName.getText().toString();
+        String address=mEtAddress.getText().toString();
+        String pin=mEtPin.getText().toString();
+        String complain=mEtComplaint.getText().toString();
+        String date=mEtDate.getText().toString();
+        String contact=mEtContact.getText().toString();
+        String status="complaint sent";
+
+        ComplainClass complainClass=new ComplainClass(name,date,complain,status,pin,contact,address);
+        collectionReference.add(complainClass).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+
+                Toast.makeText(getApplicationContext(),"Check MY COMPLAIN section to view your complaint status",Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getApplicationContext(),HomeScreen.class));
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getApplicationContext(),"Error While Saving your Data",Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getApplicationContext(),HomeScreen.class));
+            }
+        });
+
+
         LayoutInflater inflater =LayoutInflater.from(this);
         View prompt =inflater.inflate(getResources().getLayout(R.layout.confirm_dialog), null);
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -78,34 +104,6 @@ public class Complain extends AppCompatActivity {
         }catch (Exception e){
             Log.d("exception", e.getMessage());
         }
-        //STORING IT IN FIRESTORE
-        id=firebaseAuth.getCurrentUser().getUid();
-        final String name=mEtName.getText().toString();
-        String address=mEtAddress.getText().toString();
-        String pin=mEtPin.getText().toString();
-        String complain=mEtComplaint.getText().toString();
-        String date=mEtDate.getText().toString();
-        String contact=mEtContact.getText().toString();
-        String status="complaint sent";
-
-        ComplainClass complainClass=new ComplainClass(name,address,pin,complain,date,contact,status);
-
-        collectionReference.add(complainClass).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-            @Override
-            public void onSuccess(DocumentReference documentReference) {
-                startActivity(new Intent(getApplicationContext(),HomeScreen.class));
-                Toast.makeText(getApplicationContext(),"Check MY COMPLAIN section to view your complaint status",
-                        Toast.LENGTH_LONG).show();
-                //finish();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getApplicationContext(),"Error While Saving your Data",Toast.LENGTH_LONG).show();
-                startActivity(new Intent(getApplicationContext(),HomeScreen.class));
-               // finish();
-            }
-        });
 
     }
 }

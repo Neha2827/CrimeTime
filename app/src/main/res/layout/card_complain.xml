@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="8dp"
+    app:cardBackgroundColor="#EAE8DC"
+    app:cardCornerRadius="20dp"
+    android:layout_marginTop="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="COMPLAIN NO : "
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv_complain_no"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="DATE : "
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:layout_below="@id/tv_complain_no"
+            android:textStyle="bold"
+            android:id="@+id/tv_date"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="DETAILS : "
+            android:textSize="25sp"
+            android:layout_below="@id/tv_date"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:id="@+id/tv_details"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textColor="#000000"
+            android:layout_height="wrap_content"
+            android:text="STATUS : "
+            android:layout_below="@id/tv_details"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv_status"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ncjbdjcb"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/tv_complain_no"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv_blank_no"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ncjbdjcb"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/tv_date"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/tv_complain_no"
+            android:id="@+id/tv_blank_date"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ncjbdjcb"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/tv_details"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/tv_date"
+            android:id="@+id/tv_blank_details"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ncjbdjcb"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/tv_status"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv_blank_status"
+            android:layout_below="@+id/tv_details"
+            android:ellipsize="end"/>
+
+
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
