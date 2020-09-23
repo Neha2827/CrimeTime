@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,14 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".MyMissing"></activity>
         <activity android:name=".AdminComplainOptions" />
         <activity android:name=".AdminProcessing" />
         <activity android:name=".AdminRequest" />
         <activity android:name=".AdminComplaints" />
         <activity android:name=".AdminHome" />
         <activity android:name=".Complain" />
-        <activity android:name=".Camera"/>
+        <activity android:name=".Camera" />
         <activity android:name=".MissingComplain" />
         <activity android:name=".CrimeRateReport" />
         <activity android:name=".MyComplaints" />
@@ -37,6 +36,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.project.android.fileprovider"
@@ -47,6 +47,9 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
     </application>
 
 </manifest>

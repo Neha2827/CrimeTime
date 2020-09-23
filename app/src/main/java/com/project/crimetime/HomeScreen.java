@@ -9,15 +9,23 @@ import android.widget.Button;
 
 public class HomeScreen extends AppCompatActivity {
 
-    Button launchComplain, myComplaints, crimeReport;
+    Button launchComplain, myComplaints,mymissingComplaints,crimeReport;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+        mymissingComplaints=findViewById(R.id.missing_complain);
 
         launchComplain = findViewById(R.id.launch_complain);
         myComplaints = findViewById(R.id.mycomplain);
         crimeReport = findViewById(R.id.report);
+        mymissingComplaints.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(HomeScreen.this,MyMissing.class);
+                startActivity(intent);
+            }
+        });
 
         launchComplain.setOnClickListener(new View.OnClickListener() {
             @Override

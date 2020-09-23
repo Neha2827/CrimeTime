@@ -19,6 +19,17 @@
         android:fontFamily="@font/sitkasmall"
         android:textColor="@color/White"
         android:textSize="26dp"/>
+    <Button
+        android:id="@+id/missing_complain"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:background="@drawable/button"
+        android:text="My Missing Complain"
+        android:layout_margin="20dp"
+        android:fontFamily="@font/sitkasmall"
+        android:textColor="@color/White"
+        android:textSize="26dp"/>
+
 
     <Button
         android:id="@+id/mycomplain"
