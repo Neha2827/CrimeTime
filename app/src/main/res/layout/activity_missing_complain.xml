@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -46,8 +46,15 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/img_view"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentTop="true"/>
 
                 <EditText
+                    android:layout_below="@+id/img_view"
                     android:id="@+id/missing_name"
                     android:layout_width="350dp"
                     android:layout_height="50dp"
@@ -155,16 +162,6 @@
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="20dp"/>
 
-                <Button
-                    android:id="@+id/photo"
-                    android:layout_width="350dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/button"
-                    android:layout_below="@id/missing_time"
-                    android:layout_marginTop="20dp"
-                    android:layout_centerHorizontal="true"
-                    android:text="select photograph"
-                    android:textColor="@color/lightgray"/>
 
                 <TextView
                     android:id="@+id/complainer_details"
@@ -172,7 +169,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/White"
                     android:text="Complainer Details"
-                    android:layout_below="@+id/photo"
+                    android:layout_below="@+id/missing_place"
                     android:textSize="22dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="20dp"/>
@@ -264,4 +261,4 @@
         </LinearLayout>
     </ScrollView>
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+</LinearLayout>
