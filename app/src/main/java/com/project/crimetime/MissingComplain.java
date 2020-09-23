@@ -50,8 +50,7 @@ public class MissingComplain extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     private Uri imageuri;
     String id;
-    CollectionReference collectionReference=firebaseFirestore.collection("missing complaints").
-            document(id).collection("missing complaint details");
+   CollectionReference collectionReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -135,6 +134,7 @@ public class MissingComplain extends AppCompatActivity {
         }
         //storing image and data
         id=firebaseAuth.getCurrentUser().getUid();
+
         File newfile=new File(imageuri.getPath());
         final String missingname=mEtmissing_name.getText().toString();
         final String missingage=mEtage.getText().toString();
@@ -190,6 +190,8 @@ public class MissingComplain extends AppCompatActivity {
                 missingskin,  missinghair,  missingtime,  missingplace,
                 complainername, complaineraddress,  complainerphone,  complainerpin,
                 complaintdate, image);
+        collectionReference=firebaseFirestore.collection("missing complaints").
+                document(id).collection("missing complaint details");
         collectionReference.add(missingcomplainClass).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
