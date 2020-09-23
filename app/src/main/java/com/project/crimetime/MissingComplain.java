@@ -163,6 +163,7 @@ public class MissingComplain extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(MissingComplain.this,"failure",Toast.LENGTH_SHORT).show();
 
                     }
                 });
@@ -171,6 +172,7 @@ public class MissingComplain extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
+                Toast.makeText(MissingComplain.this,"Failed",Toast.LENGTH_SHORT).show();
 
             }
         });
