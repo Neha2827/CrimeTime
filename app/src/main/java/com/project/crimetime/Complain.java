@@ -55,6 +55,7 @@ public class Complain extends AppCompatActivity {
     public void launchComplain(){
         //STORING DATA
         String id=firebaseAuth.getCurrentUser().getUid();
+        String doc_id=firebaseFirestore.collection("complaints").document(id).collection("complaint details").document().getId();
         CollectionReference collectionReference=firebaseFirestore.collection("complaints").document(id).collection("complaint details");
         final String name=mEtName.getText().toString();
         String address=mEtAddress.getText().toString();
@@ -64,7 +65,7 @@ public class Complain extends AppCompatActivity {
         String contact=mEtContact.getText().toString();
         String status="complaint sent";
 
-        ComplainClass complainClass=new ComplainClass(name,date,complain,status,pin,contact,address);
+        ComplainClass complainClass=new ComplainClass(name,doc_id,date,complain,status,pin,contact,address);
         collectionReference.add(complainClass).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {

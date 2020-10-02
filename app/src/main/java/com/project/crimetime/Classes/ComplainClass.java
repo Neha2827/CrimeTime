@@ -12,7 +12,7 @@ public class ComplainClass {
     String address;
     String date;
 
-    public ComplainClass(String name, String date, String complain, String status, String pin, String contact, String address) {
+    public ComplainClass(String name,String complainNo, String date, String complain, String status, String pin, String contact, String address) {
         this.complainNo = complainNo;
         this.complain = complain;
         this.status = status;
@@ -26,7 +26,7 @@ public class ComplainClass {
     public ComplainClass() {
     }
 
-    @Exclude
+
     public String getComplainNo() {
         return complainNo;
     }
