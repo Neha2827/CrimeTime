@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.project.crimetime.Classes.ComplainClass;
+import com.project.crimetime.Classes.MissingcomplainClass;
 
 public class userComplainAdapter extends FirestoreRecyclerAdapter <ComplainClass, userComplainAdapter.Holder>{
 
@@ -24,6 +25,7 @@ public class userComplainAdapter extends FirestoreRecyclerAdapter <ComplainClass
         holder.mTvDate.setText(model.getDate());
         holder.mTvComplain.setText(model.getComplain());
         holder.mTvStatus.setText(model.getStatus());
+        //
     }
 
     @NonNull
