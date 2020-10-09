@@ -148,6 +148,7 @@ public class MissingComplain extends AppCompatActivity {
         final String complaineraddress=mEtaddress.getText().toString();
         final String complainerpin=mEtpincode.getText().toString();
         final String complaintdate=mEtdate.getText().toString();
+        final String status="Complaint sent";
         final StorageReference imageref=storageReference.child("user_image/"+ UUID.randomUUID().toString()+".jpg");
         imageref.putFile(Uri.fromFile(newfile)).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
@@ -156,7 +157,7 @@ public class MissingComplain extends AppCompatActivity {
                     @Override
                     public void onSuccess(Uri uri) {
                         storeuserdata(missingname,missingage,missingheight,missingskin,missinghair,missingtime,missingplace
-                        ,complainername,complaineraddress,complainerphone,complainerpin,complaintdate,uri.toString());
+                        ,complainername,complaineraddress,complainerphone,complainerpin,complaintdate,uri.toString(),status);
 
 
                     }
@@ -184,12 +185,12 @@ public class MissingComplain extends AppCompatActivity {
     private void storeuserdata(String missingname, String missingage, String missingheight,
                                String missingskin, String missinghair, String missingtime, String missingplace,
                                String complainername, String complaineraddress, String complainerphone, String complainerpin,
-                               String complaintdate, String image) {
+                               String complaintdate, String image, String status) {
         MissingcomplainClass missingcomplainClass=new MissingcomplainClass( missingname,  missingage,
                 missingheight,
                 missingskin,  missinghair,  missingtime,  missingplace,
                 complainername, complaineraddress,  complainerphone,  complainerpin,
-                complaintdate, image);
+                complaintdate, image,status);
         collectionReference=firebaseFirestore.collection("missing complaints").
                 document(id).collection("missing complaint details");
         collectionReference.add(missingcomplainClass).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {

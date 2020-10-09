@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="8dp"
+    app:cardBackgroundColor="#EAE8DC"
+    app:cardCornerRadius="20dp"
+    android:layout_marginTop="10dp">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+       <ImageView
+           android:id="@+id/img_view_missing_person"
+           android:layout_gravity="center"
+           android:layout_width="200dp"
+           android:layout_height="150dp"/>
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="COMPLAIN NO : "
+           android:textColor="#000000"
+           android:textStyle="bold"
+           android:textSize="25sp"
+           android:layout_marginTop="10dp"
+           android:id="@+id/tv_missing_complain_no"/>
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="COMPLAINT DATE:"
+           android:textColor="#000000"
+           android:textStyle="bold"
+           android:textSize="25sp"
+           android:layout_marginTop="10dp"
+           android:id="@+id/tv_complain_date"/>
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center"
+           android:textColor="#000000"
+           android:textStyle="bold"
+           android:textSize="25sp"
+           android:layout_marginTop="10dp"
+
+           android:text="MISSING PERSON'S DETAILS"/>
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="NAME: "
+
+           android:textColor="#000000"
+           android:textStyle="bold"
+           android:textSize="25sp"
+           android:layout_marginTop="10dp"
+           android:id="@+id/tv_missing_person_name"/>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="HEIGHT:"
+               android:textColor="#000000"
+               android:textStyle="bold"
+               android:textSize="25sp"
+               android:layout_marginTop="10dp"
+               android:id="@+id/tv_missing_height"/>
+           <TextView
+               android:layout_marginStart="100dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="AGE:"
+               android:textColor="#000000"
+               android:textStyle="bold"
+               android:textSize="25sp"
+               android:layout_marginTop="10dp"
+               android:id="@+id/tv_missing_age"/>
+
+
+
+       </LinearLayout>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="COMPLEXION:"
+               android:textColor="#000000"
+               android:textStyle="bold"
+               android:textSize="25sp"
+               android:layout_marginTop="10dp"
+               android:id="@+id/tv_missing_complexion"/>
+           <TextView
+               android:layout_marginStart="100dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="HAIR:"
+               android:textColor="#000000"
+               android:textStyle="bold"
+               android:textSize="25sp"
+               android:layout_marginTop="10dp"
+               android:id="@+id/tv_missing_hair"/>
+
+
+
+       </LinearLayout>
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="LAST SEEN AT : "
+           android:textColor="#000000"
+           android:textStyle="bold"
+           android:textSize="25sp"
+           android:layout_marginTop="10dp"
+           android:id="@+id/tv_missing_place"/>
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="COMPLAINER DETAILS : "
+           android:textColor="#000000"
+           android:textStyle="bold"
+           android:textSize="25sp"
+           android:layout_marginTop="10dp"
+           />
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="NAME : "
+           android:textColor="#000000"
+           android:textStyle="bold"
+           android:textSize="25sp"
+           android:layout_marginTop="10dp"
+           android:id="@+id/tv_complainer_name"/>
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="PHONE: "
+           android:textColor="#000000"
+           android:textStyle="bold"
+           android:textSize="25sp"
+           android:layout_marginTop="10dp"
+           android:id="@+id/tv_complainer_phone"/>
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="PINCODE: "
+           android:textColor="#000000"
+           android:textStyle="bold"
+           android:textSize="25sp"
+           android:layout_marginTop="10dp"
+           android:id="@+id/tv_complainer_pin"/>
+
+
+
+   </LinearLayout>
+
+</androidx.cardview.widget.CardView>
