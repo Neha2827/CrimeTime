@@ -31,6 +31,7 @@ public class ComplainClass {
         return complainNo;
     }
 
+
     public void setComplainNo(String complainNo)
     {
         this.complainNo = complainNo;
