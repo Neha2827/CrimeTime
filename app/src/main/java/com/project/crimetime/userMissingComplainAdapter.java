@@ -75,7 +75,6 @@ public class userMissingComplainAdapter extends FirestoreRecyclerAdapter <Missin
             mtvmissingheight=itemView.findViewById(R.id.tv_missing_height);
             mtvmissingplace=itemView.findViewById(R.id.tv_missing_place);
             mtvmissinghair=itemView.findViewById(R.id.tv_missing_hair);
-
             mtvcomplainername=itemView.findViewById(R.id.tv_complainer_name);
             mtvcomplainerphone=itemView.findViewById(R.id.tv_complainer_phone);
             mtvcomplainerpin=itemView.findViewById(R.id.tv_complainer_pin);

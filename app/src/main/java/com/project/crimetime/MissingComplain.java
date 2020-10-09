@@ -24,12 +24,17 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -41,6 +46,8 @@ import java.io.File;
 import java.util.UUID;
 
 public class MissingComplain extends AppCompatActivity {
+    int complainno=0;
+    MissingcomplainClass missingcomplainClass;
     ImageView imageView;
     EditText mEtmissing_name,mEtage,mEtheight,mEtmissing_skin,mEthair,mEtmissing_time,mEtmissing_place;
     EditText mEtcomplainer_name,mEtphone,mEtaddress,mEtpincode,mEtdate;
@@ -72,6 +79,7 @@ public class MissingComplain extends AppCompatActivity {
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseFirestore=FirebaseFirestore.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
+        id=firebaseAuth.getCurrentUser().getUid();
         launch = findViewById(R.id.launch_btn);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +101,32 @@ public class MissingComplain extends AppCompatActivity {
                 }
             }
         });
+        CollectionReference LastcollectionReference=firebaseFirestore.collection("Missing complaints").
+                document(id).collection("Missing complaint details");
+        Query lastquery=LastcollectionReference.orderBy("date", Query.Direction.DESCENDING).limit(1);
+        lastquery.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()){
+                    for(QueryDocumentSnapshot queryDocumentSnapshot:task.getResult()){
+                        missingcomplainClass= (MissingcomplainClass) queryDocumentSnapshot.toObject(MissingcomplainClass.class);
+                    }
+
+                }
+
+            }
+        });
+       /* lastquery.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+           // missingcomplainClass= (MissingcomplainClass) queryDocumentSnapshots.toObjects(MissingcomplainClass.class);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        });*/
 
 
 
@@ -133,7 +167,7 @@ public class MissingComplain extends AppCompatActivity {
             Log.d("exception", e.getMessage());
         }
         //storing image and data
-        id=firebaseAuth.getCurrentUser().getUid();
+
 
         File newfile=new File(imageuri.getPath());
         final String missingname=mEtmissing_name.getText().toString();
@@ -148,6 +182,13 @@ public class MissingComplain extends AppCompatActivity {
         final String complaineraddress=mEtaddress.getText().toString();
         final String complainerpin=mEtpincode.getText().toString();
         final String complaintdate=mEtdate.getText().toString();
+
+        if(missingcomplainClass!=null&&missingcomplainClass.getComplainNo()!=null){
+            complainno=Integer.parseInt(missingcomplainClass.getComplainNo());
+
+
+        }
+        complainno++;
         final String status="Complaint sent";
         final StorageReference imageref=storageReference.child("user_image/"+ UUID.randomUUID().toString()+".jpg");
         imageref.putFile(Uri.fromFile(newfile)).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -157,7 +198,8 @@ public class MissingComplain extends AppCompatActivity {
                     @Override
                     public void onSuccess(Uri uri) {
                         storeuserdata(missingname,missingage,missingheight,missingskin,missinghair,missingtime,missingplace
-                        ,complainername,complaineraddress,complainerphone,complainerpin,complaintdate,uri.toString(),status);
+                        ,complainername,complaineraddress,complainerphone,complainerpin,complaintdate,uri.toString(),status,
+                                String.valueOf(complainno));
 
 
                     }
@@ -185,12 +227,12 @@ public class MissingComplain extends AppCompatActivity {
     private void storeuserdata(String missingname, String missingage, String missingheight,
                                String missingskin, String missinghair, String missingtime, String missingplace,
                                String complainername, String complaineraddress, String complainerphone, String complainerpin,
-                               String complaintdate, String image, String status) {
+                               String complaintdate, String image, String status, String complainno) {
         MissingcomplainClass missingcomplainClass=new MissingcomplainClass( missingname,  missingage,
                 missingheight,
                 missingskin,  missinghair,  missingtime,  missingplace,
                 complainername, complaineraddress,  complainerphone,  complainerpin,
-                complaintdate, image,status);
+                complaintdate, image,status,complainno);
         collectionReference=firebaseFirestore.collection("missing complaints").
                 document(id).collection("missing complaint details");
         collectionReference.add(missingcomplainClass).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
