@@ -14,6 +14,7 @@
         android:layout_height="70dp"
         android:drawableLeft="@drawable/ic_back_icon"
         android:padding="8dp"
+        android:inputType="textLongMessage"
         android:drawablePadding="8dp"
         android:textSize="26dp"
         android:textColor="@color/White"
@@ -218,9 +219,9 @@
 
                 <EditText
                     android:id="@+id/pincode"
-                    android:layout_width="180dp"
+                    android:layout_width="150dp"
                     android:layout_height="50dp"
-                    android:hint="Enter Your Pincode"
+                    android:hint="Pincode"
                     android:padding="10dp"
                     android:layout_below="@id/complainer_address"
                     android:textColorHint="@color/lightgray"
