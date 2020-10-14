@@ -22,7 +22,7 @@ public class MissingcomplainClass {
     public MissingcomplainClass(String missingname, String missingage, String missingheight,
                                 String missingskin, String missinghair, String missingtime, String missingplace,
                                 String complainername, String complaineraddress, String complainerphone, String complainerpin,
-                                String complaintdate, String image,String status){
+                                String complaintdate, String image,String status,String complainNo){
         this.missingname=missingname;
         this.missingage=missingage;
         this.missingheight=missingheight;
@@ -35,6 +35,7 @@ public class MissingcomplainClass {
         this.complainerphone=complainerphone;
         this.complainerpin=complainerpin;
         this.complaintdate=complaintdate;
+        this.complainNo=complainNo;
         this.status=status;
 
         this.image=image;
