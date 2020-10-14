@@ -47,7 +47,7 @@
         android:layout_width="350dp"
         android:layout_height="70dp"
         android:background="@drawable/button"
-        android:text="Crime Rate Report"
+        android:text="NEWS REPORT"
         android:fontFamily="@font/sitkasmall"
         android:layout_margin="20dp"
         android:textColor="@color/White"
