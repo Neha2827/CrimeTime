@@ -1,11 +1,5 @@
 package com.project.crimetime;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -15,7 +9,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +16,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -57,7 +56,7 @@ public class MissingComplain extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     private Uri imageuri;
     String id;
-   CollectionReference collectionReference;
+    CollectionReference collectionReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,7 +123,6 @@ public class MissingComplain extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-
             }
         });*/
 
@@ -198,7 +196,7 @@ public class MissingComplain extends AppCompatActivity {
                     @Override
                     public void onSuccess(Uri uri) {
                         storeuserdata(missingname,missingage,missingheight,missingskin,missinghair,missingtime,missingplace
-                        ,complainername,complaineraddress,complainerphone,complainerpin,complaintdate,uri.toString(),status,
+                                ,complainername,complaineraddress,complainerphone,complainerpin,complaintdate,uri.toString(),status,
                                 String.valueOf(complainno));
 
 
