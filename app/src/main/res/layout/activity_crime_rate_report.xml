@@ -8,23 +8,22 @@
     android:background="@color/darkviolet"
     tools:context=".CrimeRateReport">
 
-    <Button
-        android:id="@+id/back_btn"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:drawableLeft="@drawable/ic_back_icon"
-        android:padding="8dp"
-        android:drawablePadding="8dp"
-        android:textSize="26dp"
-        android:textColor="@color/White"
-        android:fontFamily="@font/sitkasmall"
+        android:layout_height="wrap_content"
+        android:background="@color/lightviolet"
         android:text="NEWS REPORT"
-        android:background="@drawable/button"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="30dp"
-        android:layout_marginTop="25dp"/>
+        android:gravity="center_horizontal"
+        android:textSize="40sp"
+        android:layout_margin="10dp"
+        android:id="@+id/tv_report"/>
 
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:id="@+id/rv_news"/>
 
 
 
