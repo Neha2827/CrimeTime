@@ -21,7 +21,6 @@
         <activity android:name=".AdminComplaints" />
         <activity android:name=".AdminHome" />
         <activity android:name=".Complain" />
-        <activity android:name=".Camera" />
         <activity android:name=".MissingComplain" />
         <activity android:name=".CrimeRateReport" />
         <activity android:name=".MyComplaints" />
