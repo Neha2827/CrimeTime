@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -7,108 +7,106 @@
     tools:context=".Fragments.UserLogin">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:orientation="vertical"
+        android:paddingBottom="20dp"
         android:paddingTop="10dp"
-        android:paddingBottom="20dp">
+        android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/log_email"
             android:layout_width="250dp"
             android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/buttom_signin"
+            android:textAlignment="center"
+            android:inputType="textEmailAddress"
+            android:id="@+id/log_email"
+            android:hint="Enter email"
+            android:textColor="#ffffff"
             android:drawableLeft="@android:drawable/ic_dialog_email"
             android:drawablePadding="8dp"
-            android:hint="Enter email"
             android:padding="10dp"
-            android:textAlignment="center"
             android:textColorHint="@color/bluegray"
-            android:textSize="24sp" />
-
-        <EditText
-            android:id="@+id/log_password"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
             android:layout_margin="10dp"
             android:background="@drawable/buttom_signin"
+            android:textSize="24sp"/>
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:textAlignment="center"
+            android:id="@+id/log_password"
+            android:inputType="textPassword"
+            android:layout_margin="10dp"
+            android:textColorHint="@color/bluegray"
+            android:hint="Password"
+            android:textColor="#ffffff"
             android:drawableLeft="@android:drawable/ic_lock_idle_lock"
             android:drawablePadding="8dp"
-            android:hint="Password"
             android:padding="10dp"
-            android:textAlignment="center"
-            android:textColorHint="@color/bluegray"
-            android:textSize="24sp" />
+            android:background="@drawable/buttom_signin"
+            android:textSize="24sp"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            >
 
             <CheckBox
                 android:id="@+id/showpass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
                 android:layout_margin="8dp"
-                android:text="show password" />
+                android:layout_alignParentLeft="true"
+                android:text="show password"/>
 
             <TextView
                 android:id="@+id/forgot"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:textSize="18sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
                 android:text="forgot password?"
-                android:textSize="18sp" />
-
+                android:layout_marginRight="15dp"/>
         </RelativeLayout>
 
         <Button
             android:id="@+id/user_login"
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/button"
             android:text="Sign in"
-            android:textColor="@color/White" />
-        <CheckBox
-            android:id="@+id/chk_remember"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-4dp"
-            android:text="Remember me" />
+            android:textColor="@color/White"
+            android:background="@drawable/button"
+            android:layout_marginTop="10dp"
+            />
 
 
         <TextView
             android:id="@+id/log_google"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
             android:text="or"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:layout_marginTop="25dp"
+            />
 
 
         <com.google.android.gms.common.SignInButton
-            android:id="@+id/log_googlesign"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <ImageButton
-            android:id="@+id/google_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
+            android:id="@+id/log_googlesign"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/google_user"
             android:background="@color/White"
-            android:src="@drawable/ic_google_ic" />
+            android:src="@drawable/ic_google_ic"
+            android:layout_marginTop="25dp"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-
-    </LinearLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

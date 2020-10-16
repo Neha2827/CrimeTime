@@ -14,14 +14,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyMissing"></activity>
+        <activity android:name=".Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MyMissing" />
         <activity android:name=".AdminComplainOptions" />
         <activity android:name=".AdminProcessing" />
         <activity android:name=".AdminRequest" />
         <activity android:name=".AdminComplaints" />
         <activity android:name=".AdminHome" />
         <activity android:name=".Complain" />
-        <activity android:name=".Camera" />
         <activity android:name=".MissingComplain" />
         <activity android:name=".CrimeRateReport" />
         <activity android:name=".MyComplaints" />
@@ -30,11 +36,7 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LogIn" />
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <provider

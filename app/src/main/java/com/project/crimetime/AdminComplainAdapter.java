@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.project.crimetime.Classes.AdminViewComplain;
 import com.project.crimetime.Classes.ComplainClass;
 
 public class AdminComplainAdapter extends FirestoreRecyclerAdapter<ComplainClass, AdminComplainAdapter.Holder> {

@@ -55,5 +55,14 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.9.0'
 
 
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0' // API Access using retrofit
+   // implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'//Converstion factory
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.7.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+
+    implementation 'com.airbnb.android:lottie:3.4.0'
+
+
 
 }
