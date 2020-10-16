@@ -101,8 +101,8 @@ public class MissingComplain extends AppCompatActivity {
                 }
             }
         });
-        CollectionReference LastcollectionReference=firebaseFirestore.collection("Missing complaints").
-                document(id).collection("Missing complaint details");
+        CollectionReference LastcollectionReference=firebaseFirestore.collection("missing complaints").
+                document(id).collection("missing complaint details");
         Query lastquery=LastcollectionReference.orderBy("date", Query.Direction.DESCENDING).limit(1);
         lastquery.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override

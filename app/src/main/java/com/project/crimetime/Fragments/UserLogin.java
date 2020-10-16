@@ -3,6 +3,7 @@ package com.project.crimetime.Fragments;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.TextUtils;
@@ -37,16 +38,25 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.project.crimetime.HomeScreen;
 import com.project.crimetime.R;
 
+import io.grpc.Context;
+
 
 public class UserLogin
         extends Fragment {
 
     public static final int GOOGLE_SIGN_IN_CODE = 10005;
+
     EditText mEmail, mPassword;
     Button signIn;
     TextView mlogin, forgotpassword;
     FirebaseAuth fAuth;
     CheckBox mshowpass;
+    private CheckBox mChkRememberMe;
+    private SharedPreferences prefManager;
+    private SharedPreferences.Editor editor;
+    public static final String KEY_IS_USER_LOGGED_IN = "ISUSERLOGGEDIN";
+    public static final String KEY_PASSWORD = "PASSWORD";
+    public static final String KEY_EMAIL_ADDRESS = "EMAILADDRESS";
     FirebaseAuth mAuth;
     SignInButton signInButton;
     GoogleSignInClient signInClient;
@@ -74,6 +84,18 @@ public class UserLogin
         mAuth = FirebaseAuth.getInstance();
         forgotpassword = v.findViewById(R.id.forgot);
         signInButton = v.findViewById(R.id.log_googlesign);
+        mChkRememberMe=v.findViewById(R.id.chk_remember);
+        prefManager = this.getActivity().getSharedPreferences("PREF",0);
+        editor = prefManager.edit();
+        boolean isUserAlreadyLoggedIn = prefManager.getBoolean("ISUSERLOGGEDIN", false);
+
+        String emailAddress = prefManager.getString(KEY_EMAIL_ADDRESS, "");
+
+        mEmail.setText(emailAddress);
+        if (isUserAlreadyLoggedIn) {
+            Intent intent = new Intent(getContext(), HomeScreen.class);
+            startActivity(intent);
+        }
 
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -114,6 +136,16 @@ public class UserLogin
             public void onClick(View view) {
                 String email = mEmail.getText().toString().trim();
                 String password = mPassword.getText().toString().trim();
+
+                boolean isRememberMe = mChkRememberMe.isChecked();
+
+                editor.putString(KEY_EMAIL_ADDRESS, email);
+                editor.putString(KEY_PASSWORD, password);
+                if (isRememberMe) {
+                    editor.putBoolean(KEY_IS_USER_LOGGED_IN, true);
+                }
+                editor.apply();
+
 
 
                 if (TextUtils.isEmpty(email)) {
