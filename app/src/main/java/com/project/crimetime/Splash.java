@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class Splash extends AppCompatActivity {
 
-    private static int SPLASH_SCREEN=2500;
+    private static int SPLASH_SCREEN=3000;
     TextView mTvCrimeTime;
     Animation animation;
 
