@@ -23,8 +23,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         this.arrayList = arrayList;
     }
 
-    public void setListener(ClickListener listener){
-        this.listener=listener;
+    public void setListener(ClickListener listener) {
+        this.listener = listener;
     }
 
     @NonNull
@@ -40,8 +40,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         holder.mLlLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (listener!=null){
-                    listener.onClicked();
+                if (listener != null) {
+                    listener.onClicked(arrayList.get(position));
                 }
             }
         });
@@ -61,12 +61,12 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             mTvId = itemView.findViewById(R.id.tv_ids);
-            mLlLayout=itemView.findViewById(R.id.ll_cell1);
+            mLlLayout = itemView.findViewById(R.id.ll_cell1);
 
         }
     }
 
-    public interface ClickListener{
-        void onClicked();
+    public interface ClickListener {
+        void onClicked(String id);
     }
 }

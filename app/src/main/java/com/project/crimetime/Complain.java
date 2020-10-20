@@ -97,7 +97,6 @@ public class Complain extends AppCompatActivity {
             public void onClick(View view) {
                 dialog1.dismiss();
             }
-
         });
 
         try {

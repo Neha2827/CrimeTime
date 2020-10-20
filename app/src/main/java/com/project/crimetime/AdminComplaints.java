@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,9 +28,8 @@ public class AdminComplaints extends AppCompatActivity implements MainAdapter.Cl
 
     TextView choose_down, choose_up, complaints, missingComplaints;
     LinearLayout extra;
-    EditText pin;
-    Button search;
-    RecyclerView mRcAdmin;
+
+    RecyclerView mRcAdmin,mRcAdminMissing;
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firebaseFirestore;
     //AdminComplainAdapter adminComplainAdapter;
@@ -44,9 +44,10 @@ public class AdminComplaints extends AppCompatActivity implements MainAdapter.Cl
 
         choose_down = findViewById(R.id.choose_down);
         choose_up = findViewById(R.id.choose_up);
-        pin = findViewById(R.id.pin);
-        search = findViewById(R.id.search);
-        mRcAdmin = findViewById(R.id.rv_admin);
+
+
+        mRcAdmin = findViewById(R.id.rv_admin_complain);
+        mRcAdminMissing=findViewById(R.id.rv_admin_missing);
         extra = findViewById(R.id.extra);
         complaints = findViewById(R.id.complaints);
         missingComplaints = findViewById(R.id.missing_complaints);
@@ -99,6 +100,7 @@ public class AdminComplaints extends AppCompatActivity implements MainAdapter.Cl
                 choose_down.setVisibility(View.VISIBLE);
                 choose_up.setVisibility(View.GONE);
                 extra.setVisibility(View.GONE);
+                setMissing();
 
             }
         });
@@ -119,7 +121,7 @@ public class AdminComplaints extends AppCompatActivity implements MainAdapter.Cl
                     }
 
                     adapter=new MainAdapter(arrayList);
-                   // adapter.setListener(this);
+                    adapter.setListener(AdminComplaints.this);
                     mRcAdmin.setAdapter(adapter);
                 }
 
@@ -129,9 +131,18 @@ public class AdminComplaints extends AppCompatActivity implements MainAdapter.Cl
 
     }
 
+    public void setMissing(){
+
+        mRcAdminMissing.setVisibility(View.VISIBLE);
+        //AYUSHMINA'S CODE HERE
+
+    }
+
     @Override
-    public void onClicked() {
-        Toast.makeText(this, "Fine", Toast.LENGTH_LONG).show();
+    public void onClicked(String id) {
+        Intent intent=new Intent(AdminComplaints.this,Admin_complain_page.class);
+        intent.putExtra("id",id);
+        startActivity(intent);
     }
 }
 

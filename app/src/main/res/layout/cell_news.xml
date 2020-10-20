@@ -4,20 +4,20 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    android:layout_margin="5dp">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         app:cardElevation="5dp"
         app:strokeWidth="2dp"
         app:strokeColor="@color/black">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="5dp"
+            android:layout_height="wrap_content"
+            android:background="#E6E3D1"
             android:orientation="vertical">
 
             <TextView
@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="2dp"
                 android:id="@+id/iv_news"/>
 
             <TextView
@@ -43,7 +43,7 @@
                 android:text="DESCRIPTION"
                 android:textSize="30sp"
                 android:textStyle="italic"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="2dp"
                 android:textColor="@color/black"
                 android:alpha="0.7"
                 android:id="@+id/tv_desc"/>

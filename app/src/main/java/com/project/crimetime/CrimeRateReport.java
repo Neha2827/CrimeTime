@@ -31,10 +31,6 @@ public class CrimeRateReport extends AppCompatActivity {
         mTvReport=findViewById(R.id.tv_report);
         mRcNews.setLayoutManager(new LinearLayoutManager(CrimeRateReport.this,RecyclerView.VERTICAL,false));
 
-        OnGetNews();
-    }
-
-    private void OnGetNews() {
         ApiInterface apiInterface=ApiClient.getClient().create(ApiInterface.class);
 
         Call<Result> getNews=apiInterface.getNews("google-news","d0d45793d09c45789842968c4a90b42e");
@@ -57,5 +53,7 @@ public class CrimeRateReport extends AppCompatActivity {
             }
         });
     }
+
+
 
 }
