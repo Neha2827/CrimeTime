@@ -33,9 +33,9 @@ public class AdminComplaints extends AppCompatActivity implements MainAdapter.Cl
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firebaseFirestore;
     //AdminComplainAdapter adminComplainAdapter;
-    ArrayList<String> arrayList;
+    ArrayList<String> arrayList,array_missing_list;
     RecyclerView.LayoutManager layoutManager;
-    MainAdapter adapter;
+    MainAdapter adapter,adapter_missing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,8 +132,25 @@ public class AdminComplaints extends AppCompatActivity implements MainAdapter.Cl
     }
 
     public void setMissing(){
-
         mRcAdminMissing.setVisibility(View.VISIBLE);
+        CollectionReference collectionReference=firebaseFirestore.collection("users");
+        collectionReference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()){
+                    for(QueryDocumentSnapshot documentSnapshot:task.getResult()){
+                        String id=documentSnapshot.getId();
+                        array_missing_list.add(id);
+
+                    }
+                    adapter_missing=new MainAdapter(array_missing_list);
+                    adapter_missing.setListener(AdminComplaints.this);
+                    mRcAdminMissing.setAdapter(adapter_missing);
+                }
+            }
+        });
+
+
         //AYUSHMINA'S CODE HERE
 
     }

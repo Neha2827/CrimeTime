@@ -37,7 +37,8 @@ public class Admin_complain_page extends AppCompatActivity {
     }
 
     public void setData(){
-        collectionReference=firebaseFirestore.collection("complaints").document(ReqId).collection("complaint details");
+        collectionReference=firebaseFirestore.collection("complaints").document(ReqId).
+                collection("complaint details");
         Query query=collectionReference.orderBy("date", Query.Direction.DESCENDING);
 
         FirestoreRecyclerOptions<ComplainClass> options=new FirestoreRecyclerOptions.Builder<ComplainClass>()

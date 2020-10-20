@@ -3,6 +3,7 @@ package com.project.crimetime.Fragments;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -31,11 +32,17 @@ import com.project.crimetime.HomeScreen;
 import com.project.crimetime.R;
 
 public class AdminLogin extends Fragment {
+    private SharedPreferences prefManager;
+    private SharedPreferences.Editor editor;
+    public static final String KEY_IS_ADMIN_LOGGED_IN = "ISADMINLOGGEDIN";
+    public static final String KEY_PASSWORD = "PASSWORD";
+    public static final String KEY_EMAIL_ADDRESS = "EMAILADDRESS";
+
     EditText mEmail, mPassword;
     Button signIn;
     TextView forgotpassword;
     FirebaseAuth fAuth;
-    CheckBox mshowpass;
+    CheckBox mshowpass, mChkRememberMe;
 
 
     @Override
@@ -57,6 +64,16 @@ public class AdminLogin extends Fragment {
         mshowpass = v.findViewById(R.id.showpass);
         forgotpassword = v.findViewById(R.id.forgot);
         fAuth = FirebaseAuth.getInstance();
+        mChkRememberMe=v.findViewById(R.id.chk_remember);
+        prefManager = this.getActivity().getSharedPreferences("APP",0);
+        editor = prefManager.edit();
+        boolean isAdminAlreadyLoggedIn = prefManager.getBoolean("ISADMINLOGGEDIN", false);
+        String emailAddress = prefManager.getString(KEY_EMAIL_ADDRESS, "");
+        mEmail.setText(emailAddress);
+        if (isAdminAlreadyLoggedIn) {
+            Intent intent = new Intent(getContext(), AdminHome.class);
+            startActivity(intent);
+        }
 
 
         mshowpass.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -94,6 +111,13 @@ public class AdminLogin extends Fragment {
                     mPassword.setError("Password Must be >=6 Character");
                     return;
                 }
+                editor.putString(KEY_EMAIL_ADDRESS, email);
+                editor.putString(KEY_PASSWORD, password);
+                boolean isRememberMe = mChkRememberMe.isChecked();
+                if (isRememberMe) {
+                    editor.putBoolean(KEY_IS_ADMIN_LOGGED_IN, true);
+                }
+                editor.apply();
                 //authenticate the user
                 fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override

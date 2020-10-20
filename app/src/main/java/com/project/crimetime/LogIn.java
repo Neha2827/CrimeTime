@@ -19,12 +19,8 @@ public class LogIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in_new);
         Bundle data=getIntent().getExtras();
-
-
-
         tabLayout = findViewById(R.id.tablyout);
         viewPager = findViewById(R.id.view_pager);
-
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
         if(data!=null) {
@@ -35,6 +31,18 @@ public class LogIn extends AppCompatActivity {
                     viewPager.setCurrentItem(0);
 
                 } else {
+                    viewPager.setCurrentItem(1);
+                }
+            }
+        }
+        if(data!=null){
+            boolean IS_LOGOUT=data.getBoolean("LOGOUT");
+            boolean IS_ADMIN=data.getBoolean("ADMIN_LOGIN");
+            if(IS_LOGOUT){
+                if(IS_ADMIN){
+                    viewPager.setCurrentItem(0);
+                }
+                else {
                     viewPager.setCurrentItem(1);
                 }
             }

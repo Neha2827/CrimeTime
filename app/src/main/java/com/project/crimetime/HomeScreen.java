@@ -24,11 +24,11 @@ public class HomeScreen extends AppCompatActivity {
         launchComplain = findViewById(R.id.launch_complain);
         myComplaints = findViewById(R.id.mycomplain);
         crimeReport = findViewById(R.id.report);
-        prefManager = getSharedPreferences("APP_NAME", MODE_PRIVATE);
+        prefManager = getSharedPreferences("APP", 0);
         editor = prefManager.edit();
 
 
-        String userName = prefManager.getString(UserLogin.KEY_EMAIL_ADDRESS, "No Value available");
+       // String userName = prefManager.getString(UserLogin.KEY_EMAIL_ADDRESS, "No Value available");
 
         mymissingComplaints.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,15 +63,12 @@ public class HomeScreen extends AppCompatActivity {
         });
     }
     public void onLogoutClicked(View view) {
-        editor.putBoolean(UserLogin.KEY_IS_USER_LOGGED_IN, false);
-        editor.putString(UserLogin.KEY_PASSWORD, "");
-        //Todo code commented so that after logout the username and email address is prefilled.
-//        editor.putString(LoginActivity.KEY_USERNAME, "");
-//        editor.putString(LoginActivity.KEY_EMAIL_ADDRESS, "");
-        editor.apply();
-Intent intent=new Intent(HomeScreen.this,LogIn.class);
-intent.putExtra("USER_LOGIN",true);
-intent.putExtra("LOGOUT",true);
+       editor.putBoolean(UserLogin.KEY_IS_USER_LOGGED_IN, false);
+       editor.putString(UserLogin.KEY_PASSWORD, "");
+       editor.apply();
+       Intent intent=new Intent(HomeScreen.this,LogIn.class);
+       intent.putExtra("USER_LOGIN",true);
+       intent.putExtra("LOGOUT",true);
         startActivity(intent);
         finish();
     }

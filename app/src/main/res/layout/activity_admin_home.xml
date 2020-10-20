@@ -20,26 +20,10 @@
         android:textColor="@color/White"
         android:textSize="26dp"/>
 
-    <Button
-        android:id="@+id/admin_req"
-        android:layout_width="350dp"
-        android:layout_height="70dp"
-        android:background="@drawable/button"
-        android:text="Admin Request"
-        android:layout_margin="20dp"
-        android:fontFamily="@font/sitkasmall"
-        android:textColor="@color/White"
-        android:textSize="26dp"/>
-
-    <Button
-        android:id="@+id/processing"
-        android:layout_width="350dp"
-        android:layout_height="70dp"
-        android:background="@drawable/button"
-        android:text="Processing"
-        android:fontFamily="@font/sitkasmall"
-        android:layout_margin="20dp"
-        android:textColor="@color/White"
-        android:textSize="26dp"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:onClick="onLogoutClicked"
+        android:src="@drawable/ic_logout"
+        android:layout_width="100dp"
+        android:layout_height="50dp"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
