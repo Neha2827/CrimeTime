@@ -14,6 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Admin_complain_page"></activity>
         <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,9 +36,7 @@
         <activity android:name=".HomeScreen" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LogIn" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
 
         <provider
             android:name="androidx.core.content.FileProvider"

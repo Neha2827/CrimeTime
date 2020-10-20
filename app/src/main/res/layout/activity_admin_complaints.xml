@@ -93,40 +93,31 @@
     </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <EditText
-        android:id="@+id/pin"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:padding="8dp"
-        android:background="@drawable/button"
-        android:layout_marginTop="30dp"
-        android:hint="Enter Pincode"
-        android:textColor="#ffffff"
-        android:textAlignment="center"
-        android:textColorHint="@color/bluegray"/>
 
-    <Button
-        android:id="@+id/search"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:text="search"
-        android:background="@drawable/button"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/White"
-        android:layout_gravity="center"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/darkviolet"
-        android:layout_margin="15dp">
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp">
+
+
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="30dp"
             android:visibility="gone"
-            android:id="@+id/rv_admin"/>
+            android:id="@+id/rv_admin_complain"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
+            android:visibility="gone"
+            android:id="@+id/rv_admin_missing"/>
     </RelativeLayout>
 
 

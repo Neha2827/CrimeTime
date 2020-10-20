@@ -41,7 +41,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             @Override
             public void onClick(View view) {
                 if (listener != null) {
-                    listener.onClicked();
+                    listener.onClicked(arrayList.get(position));
                 }
             }
         });
@@ -67,6 +67,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     }
 
     public interface ClickListener {
-        void onClicked();
+        void onClicked(String id);
     }
 }
