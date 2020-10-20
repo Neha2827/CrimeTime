@@ -38,7 +38,8 @@ public class MyComplaints extends AppCompatActivity {
     }
 
     private void setRecyclerView() {
-        collectionReference=firebaseFirestore.collection("complaints").document(userId).collection("complaint details");
+        collectionReference=firebaseFirestore.collection("complaints").document(userId)
+                .collection("complaint details");
         Query query=collectionReference.orderBy("date", Query.Direction.DESCENDING);
 
         FirestoreRecyclerOptions<ComplainClass> options=new FirestoreRecyclerOptions.Builder<ComplainClass>()

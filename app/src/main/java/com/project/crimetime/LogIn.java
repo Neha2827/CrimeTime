@@ -18,12 +18,27 @@ public class LogIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in_new);
+        Bundle data=getIntent().getExtras();
+
+
 
         tabLayout = findViewById(R.id.tablyout);
         viewPager = findViewById(R.id.view_pager);
 
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
+        if(data!=null) {
+            boolean IS_LOGOUT = data.getBoolean("LOGOUT");
+            boolean IS_USER = data.getBoolean("USER_LOGIN");
+            if (IS_LOGOUT) {
+                if (IS_USER) {
+                    viewPager.setCurrentItem(0);
+
+                } else {
+                    viewPager.setCurrentItem(1);
+                }
+            }
+        }
 
     }
 

@@ -95,6 +95,7 @@ public class UserLogin
         if (isUserAlreadyLoggedIn) {
             Intent intent = new Intent(getContext(), HomeScreen.class);
             startActivity(intent);
+
         }
 
 
@@ -129,6 +130,8 @@ public class UserLogin
                 }
             }
         });
+
+
 
 
         signIn.setOnClickListener(new View.OnClickListener() {

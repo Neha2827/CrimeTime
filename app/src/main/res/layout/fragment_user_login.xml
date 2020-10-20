@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -7,7 +7,7 @@
     tools:context=".Fragments.UserLogin">
 
     <!-- TODO: Update blank fragment layout -->
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <LinearLayout
         android:layout_width="match_parent"
         android:gravity="center_horizontal"
         android:orientation="vertical"
@@ -81,6 +81,12 @@
             android:background="@drawable/button"
             android:layout_marginTop="10dp"
             />
+        <CheckBox
+            android:id="@+id/chk_remember"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remember me"/>
+
 
 
         <TextView
@@ -106,7 +112,7 @@
             android:src="@drawable/ic_google_ic"
             android:layout_marginTop="25dp"/>
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    </LinearLayout>
 
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
