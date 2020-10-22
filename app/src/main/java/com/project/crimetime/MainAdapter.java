@@ -17,10 +17,13 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     ArrayList<String> arrayList;
     private ClickListener listener;
+    boolean is_complaint;
 
 
-    public MainAdapter(ArrayList<String> arrayList) {
+
+    public MainAdapter(ArrayList<String> arrayList,boolean is_complaint) {
         this.arrayList = arrayList;
+        this.is_complaint=is_complaint;
     }
 
     public void setListener(ClickListener listener) {
@@ -41,7 +44,12 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             @Override
             public void onClick(View view) {
                 if (listener != null) {
-                    listener.onClicked(arrayList.get(position));
+                    if(is_complaint) {
+                        listener.onClicked(arrayList.get(position));
+                    }
+                    else{
+                        listener.onPressed(arrayList.get(position));
+                    }
                 }
             }
         });
@@ -68,5 +76,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     public interface ClickListener {
         void onClicked(String id);
+        void onPressed(String id1);
     }
+
 }

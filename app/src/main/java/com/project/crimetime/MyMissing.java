@@ -44,11 +44,6 @@ public class MyMissing extends AppCompatActivity {
     private void setRecyclerView() {
         collectionReference=firebaseFirestore.collection("missing complaints").document(userId).
                 collection("missing complaint details");
-       // Query query=collectionReference.orderBy("date", Query.Direction.DESCENDING);
-
-      //  FirestoreRecyclerOptions<MissingcomplainClass> options=new FirestoreRecyclerOptions.Builder<MissingcomplainClass>()
-              //  .setQuery(query,MissingcomplainClass.class)
-               // .build();
 
         final ArrayList<MissingcomplainClass> userMissingComplaints = new ArrayList<>();
 
@@ -66,7 +61,7 @@ public class MyMissing extends AppCompatActivity {
             }
         });
 
-//        userMissingComplainAdapter=new userMissingComplainAdapter(options);
+
 
 
     }

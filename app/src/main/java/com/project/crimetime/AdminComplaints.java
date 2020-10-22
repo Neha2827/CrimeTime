@@ -28,34 +28,32 @@ public class AdminComplaints extends AppCompatActivity implements MainAdapter.Cl
 
     TextView choose_down, choose_up, complaints, missingComplaints;
     LinearLayout extra;
-
-    RecyclerView mRcAdmin,mRcAdminMissing;
+    RecyclerView mRcAdmin, mRcAdminMissing;
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firebaseFirestore;
     //AdminComplainAdapter adminComplainAdapter;
-    ArrayList<String> arrayList,array_missing_list;
+    ArrayList<String> arrayList, array_missing_list;
     RecyclerView.LayoutManager layoutManager;
-    MainAdapter adapter,adapter_missing;
+    MainAdapter adapter, adapter_missing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_complaints);
-
         choose_down = findViewById(R.id.choose_down);
         choose_up = findViewById(R.id.choose_up);
-
-
         mRcAdmin = findViewById(R.id.rv_admin_complain);
-        mRcAdminMissing=findViewById(R.id.rv_admin_missing);
+        mRcAdminMissing = findViewById(R.id.rv_admin_missing);
         extra = findViewById(R.id.extra);
         complaints = findViewById(R.id.complaints);
         missingComplaints = findViewById(R.id.missing_complaints);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
+        array_missing_list = new ArrayList<String>();
         arrayList = new ArrayList<String>();
         layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
-        mRcAdmin.setLayoutManager(layoutManager);
+        mRcAdmin.setLayoutManager( new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+        mRcAdminMissing.setLayoutManager( new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
 
 
         if (choose_up.getVisibility() == View.GONE) {
@@ -114,13 +112,13 @@ public class AdminComplaints extends AppCompatActivity implements MainAdapter.Cl
         collectionReference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()){
-                    for (QueryDocumentSnapshot documentSnapshot:task.getResult()){
-                        String id=documentSnapshot.getId();
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                        String id = documentSnapshot.getId();
                         arrayList.add(id);
                     }
 
-                    adapter=new MainAdapter(arrayList);
+                    adapter = new MainAdapter(arrayList,true);
                     adapter.setListener(AdminComplaints.this);
                     mRcAdmin.setAdapter(adapter);
                 }
@@ -131,22 +129,19 @@ public class AdminComplaints extends AppCompatActivity implements MainAdapter.Cl
 
     }
 
-    public void setMissing(){
+    public void setMissing() {
         mRcAdminMissing.setVisibility(View.VISIBLE);
-        CollectionReference collectionReference=firebaseFirestore.collection("users");
-        collectionReference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if(task.isSuccessful()){
-                    for(QueryDocumentSnapshot documentSnapshot:task.getResult()){
-                        String id=documentSnapshot.getId();
-                        array_missing_list.add(id);
+        CollectionReference collectionReference = firebaseFirestore.collection("users");
+        collectionReference.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                    String id1 = documentSnapshot.getId();
+                    array_missing_list.add(id1);
 
-                    }
-                    adapter_missing=new MainAdapter(array_missing_list);
-                    adapter_missing.setListener(AdminComplaints.this);
-                    mRcAdminMissing.setAdapter(adapter_missing);
                 }
+                adapter_missing = new MainAdapter(array_missing_list,false);
+                adapter_missing.setListener(AdminComplaints.this);
+                mRcAdminMissing.setAdapter(adapter_missing);
             }
         });
 
@@ -155,10 +150,18 @@ public class AdminComplaints extends AppCompatActivity implements MainAdapter.Cl
 
     }
 
+
     @Override
     public void onClicked(String id) {
-        Intent intent=new Intent(AdminComplaints.this,Admin_complain_page.class);
-        intent.putExtra("id",id);
+        Intent intent = new Intent(AdminComplaints.this, Admin_complain_page.class);
+        intent.putExtra("id", id);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onPressed(String id1) {
+        Intent intent = new Intent(AdminComplaints.this, Admin_missing_complain_page.class);
+        intent.putExtra("id1", id1);
         startActivity(intent);
     }
 }
