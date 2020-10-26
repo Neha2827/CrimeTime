@@ -30,6 +30,7 @@ public class Admin_missing_complain_page extends AppCompatActivity {
         setContentView(R.layout.activity_admin_missing_complain_page);
         mTvHead=findViewById(R.id.tv_head);
         recyclerView=findViewById(R.id.rv_missing_complain_Page);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,false));
         firebaseFirestore=FirebaseFirestore.getInstance();
         Bundle bundle=getIntent().getExtras();
         ReqId=bundle.getString("id1");
@@ -38,10 +39,8 @@ public class Admin_missing_complain_page extends AppCompatActivity {
     public void setData(){
         collectionReference=firebaseFirestore.collection("missing complaints").document(ReqId).
                     collection("missing complaint details");
-
-            final ArrayList<MissingcomplainClass> userMissingComplaints = new ArrayList<>();
-
-            collectionReference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        final ArrayList<MissingcomplainClass> userMissingComplaints = new ArrayList<>();
+        collectionReference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
                     if(task.isSuccessful()){
@@ -55,6 +54,4 @@ public class Admin_missing_complain_page extends AppCompatActivity {
                 }
             });
     }
-
-
 }

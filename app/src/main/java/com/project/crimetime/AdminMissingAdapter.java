@@ -1,37 +1,29 @@
 package com.project.crimetime;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.project.crimetime.Classes.MissingcomplainClass;
-
 import java.util.ArrayList;
-
 public class AdminMissingAdapter extends RecyclerView.Adapter<AdminMissingAdapter.AdminHolder> {
     Context context;
     ArrayList<MissingcomplainClass> missingcomplainClasses;
-
     public AdminMissingAdapter(Context context, ArrayList<MissingcomplainClass> missingcomplainClasses) {
         this.context = context;
         this.missingcomplainClasses = missingcomplainClasses;
     }
-
-
     @NonNull
     @Override
     public AdminHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new AdminHolder(LayoutInflater.from(context).inflate(R.layout.card_missing_complain, parent,
+        final AdminHolder adminHolder = new AdminHolder(LayoutInflater.from(context).inflate(R.layout.card_missing_complain,parent,
                 false));
+        return adminHolder;
     }
-
     @Override
     public void onBindViewHolder(@NonNull AdminHolder holder, int position) {
         MissingcomplainClass model = missingcomplainClasses.get(position);
@@ -47,8 +39,6 @@ public class AdminMissingAdapter extends RecyclerView.Adapter<AdminMissingAdapte
         holder.mtvcomplainername.setText(model.getComplainername());
         holder.mtvcomplainerphone.setText(model.getComplainerphone());
         holder.mtvcomplainerpin.setText(model.getComplainerpin());
-
-
     }
 
     @Override
@@ -77,7 +67,5 @@ public class AdminMissingAdapter extends RecyclerView.Adapter<AdminMissingAdapte
             mtvcomplainerphone = itemView.findViewById(R.id.tv_complainer_phone);
             mtvcomplainerpin = itemView.findViewById(R.id.tv_complainer_pin);
         }
-
-
     }
 }
