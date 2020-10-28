@@ -32,6 +32,7 @@
            android:layout_marginTop="10dp"/>
 
            <TextView
+               android:textSize="20sp"
                android:layout_marginTop="10dp"
                android:text="dhlhyrhlkjkggghjfyjdg"
                android:layout_marginStart="10dp"
@@ -53,6 +54,7 @@
            android:layout_marginTop="10dp"
            android:id="@+id/tv_cd"/>
        <TextView
+           android:textSize="20sp"
            android:inputType="date"
            android:layout_marginTop="10dp"
            android:text="dhlhyrhlkjkggghjfyjdg"
@@ -84,6 +86,7 @@
            android:layout_marginTop="10dp"
            android:id="@+id/tv_mn"/>
            <TextView
+               android:textSize="20sp"
                android:layout_marginTop="10dp"
                android:text="dhlhyrhlkjkggghjfyjdg"
                android:layout_marginStart="10dp"
@@ -109,6 +112,7 @@
                android:layout_marginTop="10dp"
                android:id="@+id/mh"/>
                <TextView
+                   android:textSize="20sp"
                    android:inputType="number"
                    android:layout_marginTop="10dp"
                    android:text="672568900"
@@ -121,7 +125,7 @@
            <RelativeLayout
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:layout_marginStart="100dp">
+               android:layout_marginStart="20dp">
            <TextView
 
                android:layout_width="wrap_content"
@@ -133,9 +137,10 @@
                android:layout_marginTop="10dp"
                android:id="@+id/ms_age"/>
                <TextView
+                   android:textSize="20sp"
                    android:inputType="number"
                    android:layout_marginTop="10dp"
-                   android:text="black"
+                   android:text="45"
                    android:layout_marginStart="5dp"
                    android:layout_toEndOf="@+id/ms_age"
                    android:layout_width="wrap_content"
@@ -164,6 +169,7 @@
                android:layout_marginTop="10dp"
                android:id="@+id/tv_mis_cp"/>
            <TextView
+               android:textSize="20sp"
                android:layout_marginTop="10dp"
                android:text="black"
                android:layout_marginStart="5dp"
@@ -188,6 +194,7 @@
                android:layout_marginTop="10dp"
                android:id="@+id/tv_mh"/>
                <TextView
+                   android:textSize="20sp"
                    android:layout_marginTop="10dp"
                    android:text="curl"
                    android:layout_marginStart="10dp"
@@ -214,6 +221,7 @@
            android:layout_marginTop="10dp"
            android:id="@+id/tv_mp"/>
            <TextView
+               android:textSize="20sp"
                android:layout_marginTop="10dp"
                android:text="dhlhyrhlkjkggghjfyjdg"
                android:layout_marginStart="10dp"
@@ -244,6 +252,7 @@
            android:layout_marginTop="10dp"
            android:id="@+id/compl_nm"/>
     <TextView
+        android:textSize="20sp"
         android:layout_marginTop="10dp"
         android:text="dhlhyrhlkjkggghjfyjdg"
         android:layout_marginStart="10dp"
@@ -265,8 +274,10 @@
            android:layout_marginTop="10dp"
            android:id="@+id/tv_cp"/>
            <TextView
+               android:textSize="20sp"
+               android:inputType="number"
                android:layout_marginTop="10dp"
-               android:text="dhlhyrhlkjkggghjfyjdg"
+               android:text="97633578900976"
                android:layout_marginStart="10dp"
                android:layout_toEndOf="@+id/tv_cp"
                android:layout_width="wrap_content"
@@ -287,8 +298,10 @@
            android:layout_marginTop="10dp"
            android:id="@+id/tv_co_pin"/>
            <TextView
+               android:inputType="number"
+               android:textSize="20sp"
                android:layout_marginTop="10dp"
-               android:text="dhlhyrhlkjkggghjfyjdg"
+               android:text="97532"
                android:layout_marginStart="10dp"
                android:layout_toEndOf="@+id/tv_co_pin"
                android:layout_width="wrap_content"
