@@ -5,57 +5,65 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/darkviolet"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".HomeScreen">
 
     <Button
         android:id="@+id/launch_complain"
         android:layout_width="350dp"
         android:layout_height="70dp"
-        android:background="@drawable/button"
-        android:text="Launch Complain"
         android:layout_margin="20dp"
+        android:background="@drawable/button"
         android:fontFamily="@font/sitkasmall"
+        android:text="Launch Complain"
         android:textColor="@color/White"
-        android:textSize="26dp"/>
+        android:textSize="26dp" />
+
     <Button
         android:id="@+id/missing_complain"
         android:layout_width="350dp"
         android:layout_height="70dp"
-        android:background="@drawable/button"
-        android:text="My Missing Complain"
         android:layout_margin="20dp"
+        android:background="@drawable/button"
         android:fontFamily="@font/sitkasmall"
+        android:text="My Missing Complain"
         android:textColor="@color/White"
-        android:textSize="26dp"/>
+        android:textSize="26dp" />
 
 
     <Button
         android:id="@+id/mycomplain"
         android:layout_width="350dp"
         android:layout_height="70dp"
-        android:background="@drawable/button"
-        android:text="My Complain"
         android:layout_margin="20dp"
+        android:background="@drawable/button"
         android:fontFamily="@font/sitkasmall"
+        android:text="My Complain"
         android:textColor="@color/White"
-        android:textSize="26dp"/>
+        android:textSize="26dp" />
 
     <Button
         android:id="@+id/report"
         android:layout_width="350dp"
         android:layout_height="70dp"
-        android:background="@drawable/button"
-        android:text="NEWS REPORT"
-        android:fontFamily="@font/sitkasmall"
         android:layout_margin="20dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/sitkasmall"
+        android:text="NEWS REPORT"
         android:textColor="@color/White"
-        android:textSize="26dp"/>
+        android:textSize="26dp" />
+
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:onClick="onLogoutClicked"
-        android:src="@drawable/ic_logout"
-        android:layout_width="100dp"
-        android:layout_height="50dp"/>
+        android:layout_margin="10dp"
+        android:elevation="6dp"
+        android:src="@drawable/ic_off"
+        app:fabCustomSize="80dp"/>
+
 
 </LinearLayout>
